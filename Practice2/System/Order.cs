@@ -23,6 +23,43 @@ A shipping label should list the name and address of the customer
 public class Order
 {
 
+    private List<Product> _products = new List<Product>();
+    private Customer _customer;
+
+    ///<summary>
+    /// Calculate the total cost 
+    /// of the order
+    ///</summary>
+    public double CalculateCost()
+    {
+        double _cost = 0.00;
+
+        return _cost;
+    }
+
+    ///<summary>
+    /// Gets the packing
+    /// label for the order
+    ///</summary>
+    public string GetPackingLabel()
+    {
+        string _packingLabel = String.Empty;
+
+        return _packingLabel;
+    }
+
+    ///<summary>
+    /// Gets the shipping
+    /// label for the order
+    ///</summary>
+    public string GetShippingLabel()
+    {
+        string _shippingLabel = String.Empty;
+
+        return _shippingLabel;
+
+    }
+
 }
 
 

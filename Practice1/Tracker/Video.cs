@@ -127,6 +127,7 @@ namespace Practice1.Tracker
             Console.WriteLine($"Video Title: {_title}");
             Console.WriteLine($"Video Author: {_author}");
             Console.WriteLine($"Video Length (In Seconds): {_videoLengthInSeconds}");
+            Console.WriteLine($"Total Comments: {ReturnNumberOfComments()}");
             Console.WriteLine("");
 
         }
