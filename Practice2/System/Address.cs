@@ -31,7 +31,7 @@ public class Address
 
  public bool LivesInUSA()
  {
-    if (_country == "USA || _country == "United States")
+    if (_country == "USA" || _country == "United States")
     {
         _livesInUSA = true;
     }
