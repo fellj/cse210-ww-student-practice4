@@ -28,7 +28,10 @@ public class Address
     private string _country;
 
 
-
+///<summary>
+/// Determines if the
+/// country is the United States.
+///</summary>
  public bool LivesInUSA()
  {
     if (_country == "USA" || _country == "United States")
@@ -37,6 +40,22 @@ public class Address
     }
     return _livesInUSA;
  }   
+
+///<summary>
+/// Returns all of the
+/// address components
+/// combined into one string.
+///</summary>
+ public string GetFullAddress(){
+   
+   string _fullAddress = String.Empty;
+   string _newLine = Environment.NewLine;
+
+   _fullAddress = $"{_streetAddress}{_newLine}{_city}, {_stateOrProvince}{_newLine}{_country}";
+
+   return _fullAddress;
+
+ }
 
 }
 
