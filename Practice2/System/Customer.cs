@@ -24,17 +24,34 @@ namespace Practice2.System
 
         private string _customerName;
 
-        private Address _customerAddress;
+        private Address _customerAddress = new Address();
 
-
-
-        public override bool LivesInUSA()
+        public Customer(string customerName, string streetAddress, string city, string stateOrProvince, string country)
         {
-            bool _livesInUSA;
+            // Define customer name
+            _customerName = customerName;
+
+            // Define customer address
+            _customerAddress.SetStreetAddress(streetAddress);
+            _customerAddress.SetCity(city);
+            _customerAddress.SetStateOrProvince(stateOrProvince);
+            _customerAddress.SetCountry(country);
+            
+        }
+
+
+
+        ///<summary>
+        /// Returns true if the
+        /// customer lives
+        /// in the USA. Returns
+        /// false otherwise.
+        ///</summary>
+        public bool LivesInUSA()
+        {
+            bool _livesInUSA = _customerAddress.LivesInUSA();
 
             return _livesInUSA;
-
-
         }
         
     }
