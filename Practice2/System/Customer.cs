@@ -39,7 +39,37 @@ namespace Practice2.System
             
         }
 
+        ///<summary>
+        /// Set the customer name
+        ///</summary>
+        public void SetCustomerName(string inputCustomerName)
+        {
+            _customerName = inputCustomerName;
+        }
 
+        ///<summary>
+        /// Get the customer name
+        ///</summary>        
+        public string GetCustomerName()
+        {
+            return _customerName;
+        }
+
+        ///<summary>
+        /// Set the customer address
+        ///</summary>        
+        public void SetCustomerAddress(Address inputAddress)
+        {
+            _customerAddress = inputAddress;
+        }
+
+        ///<summary>
+        /// Get the customer address
+        ///</summary>
+        public string GetCustomerAddress()
+        {
+            return _customerAddress.GetFullAddress();
+        }
 
         ///<summary>
         /// Returns true if the

@@ -23,8 +23,31 @@ A shipping label should list the name and address of the customer
 public class Order
 {
 
+    private static string _newLine = Environment.NewLine;
+    private static string _dividingLine = "###########################";
+    private static double _localShippingCost = 5.00;
+
+    private static double _internationalShippingCost = 35.00;
+
     private List<Product> _products = new List<Product>();
     private Customer _customer;
+
+    public Order(string customerName, string customerStreetAddress, string customerCity, string customerStateOrProvince, string customerCountry)
+    {
+        _customer = new Customer(customerName, customerStreetAddress, customerCity, customerStateOrProvince, customerCountry);
+        
+    }
+
+    ///<summary>
+    /// Add a product
+    ///<param name="inputProduct"> An input product instance</param>
+    ///</summary>
+    public void AddProduct(Product inputProduct)
+    {
+
+        _products.Add(inputProduct);
+
+    }
 
     ///<summary>
     /// Calculate the total cost 
@@ -34,6 +57,26 @@ public class Order
     {
         double _cost = 0.00;
 
+
+        // Get the total cost of all prodcuts
+        foreach (Product product in _products)
+        {
+            _cost += product.CalculateTotalPrice();
+        }
+
+        // Add the shipping cost based on the
+        // customer's country
+        if (_customer.LivesInUSA()) 
+        {
+            _cost += _localShippingCost;
+        }
+        else
+        {
+            _cost += _internationalShippingCost;
+        }
+
+
+
         return _cost;
     }
 
@@ -41,22 +84,37 @@ public class Order
     /// Gets the packing
     /// label for the order
     ///</summary>
-    public string GetPackingLabel()
+    public void GetPackingLabel()
     {
         string _packingLabel = String.Empty;
 
-        return _packingLabel;
+        _packingLabel = $"Packing Label: {_newLine}{_dividingLine}";
+
+        foreach (Product product in _products)
+        {
+            _packingLabel += $"Product Name: {product.GetProductName()} {_newLine} Product ID: {product.GetProductID()} {_dividingLine} {_newLine}";
+            
+        }
+        
+
+        Console.WriteLine(_packingLabel);
     }
 
     ///<summary>
     /// Gets the shipping
     /// label for the order
     ///</summary>
-    public string GetShippingLabel()
+    public void GetShippingLabel()
     {
         string _shippingLabel = String.Empty;
 
-        return _shippingLabel;
+         _shippingLabel = $"Shipping Label: {_newLine}{_dividingLine}";
+
+
+        _shippingLabel += $"{_customer.GetCustomerName()} {_newLine} {_customer.GetCustomerAddress()} {_newLine} {_dividingLine} {_newLine}";
+        
+
+        Console.WriteLine(_shippingLabel);
 
     }
 

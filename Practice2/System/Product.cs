@@ -38,6 +38,70 @@ public class Product
     }
 
     ///<summary>
+    /// Sets the product name
+    ///</summary>
+    public void SetProductName(string inputProductName)
+    {
+        _productName = inputProductName;
+
+    }
+
+    ///<summary>
+    /// Get the product name
+    ///</summary>
+    public string GetProductName()
+    {
+        return _productName;
+    }
+
+    ///<summary>
+    /// Set product ID
+    ///</summary>
+    public void SetProductID(string inputProductID)
+    {
+        _productID = inputProductID;
+    }
+
+    ///<summary>
+    /// Get the product ID
+    ///</summary>
+    public string GetProductID()
+    {
+        return _productID;
+    }
+    ///<summary>
+    /// Set the product price
+    ///</summary>
+    public void SetProductPrice(double inputProductPrice)
+    {
+        _productPrice = inputProductPrice;
+    }
+
+    ///<summary>
+    /// Get the product price
+    ///</summary>
+    public double GetProductPrice()
+    {
+        return _productPrice;
+    }
+
+
+    ///<summary>
+    /// Set the product quantity
+    ///</summary>
+    public void SetProductQuantity(int inputProductQuantity)
+    {
+        _productQuantity = inputProductQuantity;
+    }
+    ///<summary>
+    /// Get the product quantity
+    ///</summary>               
+    public int GetProductQuantity()
+    {
+        return _productQuantity;
+    }         
+
+    ///<summary>
     /// Returns the price
     /// mulitiplied by the
     /// quantity.
