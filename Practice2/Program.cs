@@ -1,4 +1,5 @@
 ﻿using System;
+using Practice2.Directing;
 
 
 #region PROGRAM REQUIREMENTS
@@ -62,7 +63,10 @@ namespace Practice2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World! This is Practice 2.");
+            Console.WriteLine("This is Practice 2.");
+
+            Director director = new Director();
+            director.CreateOrders();
         }
     }
 }
