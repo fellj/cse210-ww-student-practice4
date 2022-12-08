@@ -22,7 +22,7 @@ namespace Practice2.Directing
     {
 
         private List<Order> _orders = new List<Order>();
-
+        private static string _newLine = Environment.NewLine;
 
 
         ///<summary>
@@ -46,9 +46,9 @@ namespace Practice2.Directing
             _orders.Add(order1);
 
             // Add products to order 1
-            Product product1 = new Product("Quantum Mechanics for Dummies", "8888", 25.00, 1);
-            Product product2 = new Product("Flux Capacitor", "8889", 54.99, 10);
-            Product product3 = new Product("Old Fashioned Bow Tie", "0052", 19.50, 3);
+            Product product1 = new Product("Quantum Mechanics for Dummies", "8888", 25.00M, 1);
+            Product product2 = new Product("Flux Capacitor", "8889", 54.99M, 10);
+            Product product3 = new Product("Old Fashioned Bow Tie", "0052", 19.50M, 3);
 
             order1.AddProduct(product1);
             order1.AddProduct(product2);
@@ -70,9 +70,9 @@ namespace Practice2.Directing
 
 
             // Add products to order 1
-            Product product4 = new Product("How to help the U.S. economny", "3612", 55.00, 5);
-            Product product5 = new Product("Covid-19 Mask", "4006", 9.99, 20);
-            Product product6 = new Product("Presidential ball point pen", "0939", 12.99, 1);
+            Product product4 = new Product("How to help the U.S. economny", "3612", 55.00M, 5);
+            Product product5 = new Product("Covid-19 Mask", "4006", 9.99M, 20);
+            Product product6 = new Product("Presidential ball point pen", "0939", 12.99M, 1);
 
             order2.AddProduct(product4);
             order2.AddProduct(product5);
@@ -88,11 +88,21 @@ namespace Practice2.Directing
         ///</summary>
         public void DisplayOrders()
         {
+
+            int orderCounter = 1;
             
 
             foreach (Order order in _orders)
             {
-                order.CalculateCost();
+
+                Console.WriteLine($"Processing Order {orderCounter} ... {_newLine}");
+                order.GetPackingLabel();
+                Console.WriteLine(_newLine);
+                order.GetShippingLabel();
+                Console.WriteLine($"The total cost of the order is: {order.CalculateCost().ToString("C2")}.");
+                Console.WriteLine(_newLine);  
+
+                orderCounter++;
                 
             }
 

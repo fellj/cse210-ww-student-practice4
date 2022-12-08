@@ -23,12 +23,12 @@ public class Product
 
     private string _productID;
 
-    private double _productPrice;
+    private decimal _productPrice;
 
     private int _productQuantity;
 
     
-    public Product(string name, string ID, double price, int quantity)
+    public Product(string name, string ID, decimal price, int quantity)
     {
         _productName = name;
         _productID = ID;
@@ -72,7 +72,7 @@ public class Product
     ///<summary>
     /// Set the product price
     ///</summary>
-    public void SetProductPrice(double inputProductPrice)
+    public void SetProductPrice(decimal inputProductPrice)
     {
         _productPrice = inputProductPrice;
     }
@@ -80,7 +80,7 @@ public class Product
     ///<summary>
     /// Get the product price
     ///</summary>
-    public double GetProductPrice()
+    public decimal GetProductPrice()
     {
         return _productPrice;
     }
@@ -106,7 +106,7 @@ public class Product
     /// mulitiplied by the
     /// quantity.
     ///</summary>
-    public double CalculateTotalPrice()
+    public decimal CalculateTotalPrice()
     {
 
         return (_productPrice * _productQuantity);

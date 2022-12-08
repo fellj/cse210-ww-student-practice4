@@ -67,6 +67,7 @@ namespace Practice2
 
             Director director = new Director();
             director.CreateOrders();
+            director.DisplayOrders();
         }
     }
 }

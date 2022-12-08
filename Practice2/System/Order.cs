@@ -25,9 +25,9 @@ public class Order
 
     private static string _newLine = Environment.NewLine;
     private static string _dividingLine = "###########################";
-    private static double _localShippingCost = 5.00;
+    private static decimal _localShippingCost = 5.00M;
 
-    private static double _internationalShippingCost = 35.00;
+    private static decimal _internationalShippingCost = 35.00M;
 
     private List<Product> _products = new List<Product>();
     private Customer _customer;
@@ -53,9 +53,9 @@ public class Order
     /// Calculate the total cost 
     /// of the order
     ///</summary>
-    public double CalculateCost()
+    public decimal CalculateCost()
     {
-        double _cost = 0.00;
+        decimal _cost = 0.00M;
 
 
         // Get the total cost of all prodcuts
@@ -88,11 +88,11 @@ public class Order
     {
         string _packingLabel = String.Empty;
 
-        _packingLabel = $"Packing Label: {_newLine}{_dividingLine}";
+        _packingLabel = $"Packing Label: {_newLine}{_dividingLine}{_newLine}";
 
         foreach (Product product in _products)
         {
-            _packingLabel += $"Product Name: {product.GetProductName()} {_newLine} Product ID: {product.GetProductID()} {_dividingLine} {_newLine}";
+            _packingLabel += $"Product Name: {product.GetProductName()} {_newLine} Product ID: {product.GetProductID()} {_newLine}  {_newLine} {_dividingLine}";
             
         }
         
@@ -108,7 +108,7 @@ public class Order
     {
         string _shippingLabel = String.Empty;
 
-         _shippingLabel = $"Shipping Label: {_newLine}{_dividingLine}";
+         _shippingLabel = $"Shipping Label: {_newLine}{_dividingLine}{_newLine}";
 
 
         _shippingLabel += $"{_customer.GetCustomerName()} {_newLine} {_customer.GetCustomerAddress()} {_newLine} {_dividingLine} {_newLine}";
