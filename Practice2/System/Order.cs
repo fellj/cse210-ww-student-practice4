@@ -86,13 +86,13 @@ public class Order
     ///</summary>
     public void GetPackingLabel()
     {
-        string _packingLabel = String.Empty;
+        string _packingLabel;
 
         _packingLabel = $"Packing Label: {_newLine}{_dividingLine}{_newLine}";
 
         foreach (Product product in _products)
         {
-            _packingLabel += $"Product Name: {product.GetProductName()} {_newLine} Product ID: {product.GetProductID()} {_newLine}  {_newLine} {_dividingLine}";
+            _packingLabel += $"{_newLine}Product Name: {product.GetProductName()}{_newLine}Product ID: {product.GetProductID()}{_newLine}{_newLine}{_dividingLine}";
             
         }
         
@@ -111,7 +111,7 @@ public class Order
          _shippingLabel = $"Shipping Label: {_newLine}{_dividingLine}{_newLine}";
 
 
-        _shippingLabel += $"{_customer.GetCustomerName()} {_newLine} {_customer.GetCustomerAddress()} {_newLine} {_dividingLine} {_newLine}";
+        _shippingLabel += $"{_newLine}{_customer.GetCustomerName()}{_newLine}{_customer.GetCustomerAddress()}{_newLine}{_dividingLine}{_newLine}";
         
 
         Console.WriteLine(_shippingLabel);

@@ -1,6 +1,6 @@
 using System;
 
-namespace Practice2.System
+namespace Practice3.Base
 {
 
 #region CLASS REQUIREMENTS
@@ -121,7 +121,7 @@ public class Address
 ///</summary>
  public string GetFullAddress(){
    
-   string _fullAddress;
+   string _fullAddress = String.Empty;
    string _newLine = Environment.NewLine;
 
    _fullAddress = $"{_streetAddress}{_newLine}{_city}, {_stateOrProvince}{_newLine}{_country}";
