@@ -1,4 +1,5 @@
 using System;
+using Practice3.Base;
 
 namespace Practice3.Base
 {
@@ -25,13 +26,7 @@ namespace Practice3.Base
     class Event
     {
 
-
-
-        private static string _newLine = Environment.NewLine;
-
-        private static string _dividingLine = "###########################";
-
-        private enum EVENTTYPE {Lecture = 1, Outdoor = 2, Reception = 3}
+        #region Class Level Variables
 
         private string _eventTitle;
 
@@ -43,9 +38,13 @@ namespace Practice3.Base
 
         private Address _eventAddress;
 
-        private int _eventType;
+        private Constants.EVENTTYPE _eventType;
 
-        public Event(string inputTitle, string inputDescription, DateTime inputDate, TimeOnly inputTime, Address inputAddress, int inputEventType)
+        #endregion
+
+        #region Constructor
+
+        public Event(string inputTitle, string inputDescription, DateTime inputDate, TimeOnly inputTime, Address inputAddress, Constants.EVENTTYPE inputEventType)
         {
             _eventTitle       = inputTitle;
             _eventDescription = inputDescription;
@@ -55,6 +54,12 @@ namespace Practice3.Base
             _eventType        = inputEventType;
             
         }
+
+        #endregion
+
+        #region Methods
+
+        #region Getters and Setters
 
         ///<summary>
         /// Get the event
@@ -69,6 +74,7 @@ namespace Practice3.Base
         ///<summary>
         /// Set the event
         /// title
+        ///<param name="inputEventTitle">Represents the event title string object</param>        
         ///</summary>
         public void SetEventTitle(string inputEventTitle)
         {
@@ -78,17 +84,18 @@ namespace Practice3.Base
 
         ///<summary>
         /// Get the event
-        /// date
+        /// date as a string
         ///</summary>
-        public DateTime GetEventDate()
+        public string GetEventDate()
         {
-            return _eventDate;
+            return _eventDate.ToShortDateString();
 
         }
 
         ///<summary>
         /// Set the event
         /// date
+        ///<param name="inputEventDate">Represents the event datetime object</param>        
         ///</summary>
         public void SetEventDate(DateTime inputEventDate)
         {
@@ -109,6 +116,7 @@ namespace Practice3.Base
         ///<summary>
         /// Set the event
         /// description
+        ///<param name="inputEventDescription">Represents the event description string object</param>        
         ///</summary>
         public void SetEventDescription(string inputEventDescription)
         {
@@ -118,23 +126,94 @@ namespace Practice3.Base
 
         ///<summary>
         /// Get the event
-        /// description
+        /// time
         ///</summary>
-        public string GetEventDescription()
+        public string GetEventTime()
         {
-            return _eventDescription;
+            return _eventTime.ToString();
 
         }
 
         ///<summary>
         /// Set the event
-        /// description
+        /// time
+        ///<param name="inputEventTime">Represents the event timeonly object</param>        
         ///</summary>
-        public void SetEventDescription(string inputEventDescription)
+        public void SetEventTime(TimeOnly inputEventTime)
         {
-            _eventDescription = inputEventDescription;
+            _eventTime = inputEventTime;
 
         }
+
+
+
+        ///<summary>
+        /// Get the event
+        /// address
+        ///</summary>
+        public void GetEventAddress()
+        {
+           _eventAddress.GetFullAddress();
+
+        }
+
+        ///<summary>
+        /// Set the event
+        /// address
+        ///<param name="inputEventAddress">Represents the event address object</param>
+        ///</summary>
+        public void SetEventAddress(Address inputEventAddress)
+        {
+            _eventAddress = inputEventAddress;
+
+        }
+
+
+ ///<summary>
+        /// Gets the string
+        /// representation of the event
+        /// type based on the enum
+        /// event type.
+        /// The event type is set initially
+        /// in the constructor.
+        ///</summary>
+        public string GetEventType()
+        {
+            switch (_eventType)
+            {
+                case Constants.EVENTTYPE.Lecture:
+                     return "Lecture";
+                
+                case Constants.EVENTTYPE.Outdoor:
+                     return "Outdoor";
+
+                case Constants.EVENTTYPE.Reception:
+                     return "Reception";
+
+                default:
+                     return "Unknown";
+            }
+
+        }  
+
+
+        ///<summary>
+        /// Set the event
+        /// type
+        ///<param name="inputEventType">Represents the event type enum object</param>
+        ///</summary>
+        public void SetEventType(Constants.EVENTTYPE inputEventType)
+        {
+            _eventType = inputEventType;
+
+        }
+
+        #endregion
+
+
+        #region Display Event Messages        
+
+
 
 
         ///<summary>
@@ -145,14 +224,14 @@ namespace Practice3.Base
         {
 
             Console.WriteLine("Standard Event Details");
-            Console.WriteLine(_dividingLine);
-            Console.WriteLine(_newLine);
-            Console.WriteLine(_newLine);
-            Console.WriteLine($"Event Title: {_eventTitle}");
-            Console.WriteLine($"Event Description: {_eventDescription}");
-            Console.WriteLine($"Event Date: {_eventDate}");
-            Console.WriteLine($"Event Time: {_eventTime}");            
-            Console.WriteLine($"Event Address: {_newLine}{_eventAddress.GetFullAddress()}");            
+            Console.WriteLine(Constants._dividingLine);
+            Console.WriteLine(Constants._newLine);
+            Console.WriteLine(Constants._newLine);
+            Console.WriteLine($"Event Title: {GetEventTitle()}");
+            Console.WriteLine($"Event Description: {GetEventDescription()}");
+            Console.WriteLine($"Event Date: {GetEventDate()}");
+            Console.WriteLine($"Event Time: {GetEventTime()}");            
+            Console.WriteLine($"Event Address: {Constants._newLine}{_eventAddress.GetFullAddress()}");            
 
 
 
@@ -166,15 +245,15 @@ namespace Practice3.Base
         {
 
             Console.WriteLine("Full Event Details");
-            Console.WriteLine(_dividingLine);
-            Console.WriteLine(_newLine);
-            Console.WriteLine(_newLine);
-            Console.WriteLine($"Event Title: {_eventTitle}");
+            Console.WriteLine(Constants._dividingLine);
+            Console.WriteLine(Constants._newLine);
+            Console.WriteLine(Constants._newLine);
+            Console.WriteLine($"Event Title: {GetEventTitle()}");
             Console.WriteLine($"Event Type: {GetEventType()}");            
-            Console.WriteLine($"Event Description: {_eventDescription}");
-            Console.WriteLine($"Event Date: {_eventDate}");
-            Console.WriteLine($"Event Time: {_eventTime}");            
-            Console.WriteLine($"Event Address: {_newLine}{_eventAddress.GetFullAddress()}");            
+            Console.WriteLine($"Event Description: {GetEventDescription()}");
+            Console.WriteLine($"Event Date: {GetEventDate()}");
+            Console.WriteLine($"Event Time: {GetEventTime()}");            
+            Console.WriteLine($"Event Address: {Constants._newLine}{_eventAddress.GetFullAddress()}");            
 
 
 
@@ -188,46 +267,22 @@ namespace Practice3.Base
         {
 
             Console.WriteLine("Short Event Details");
-            Console.WriteLine(_dividingLine);
-            Console.WriteLine(_newLine);
-            Console.WriteLine(_newLine);
-            Console.WriteLine($"Event Title: {_eventTitle}");
+            Console.WriteLine(Constants._dividingLine);
+            Console.WriteLine(Constants._newLine);
+            Console.WriteLine(Constants._newLine);
+            Console.WriteLine($"Event Title: {GetEventTitle()}");
             Console.WriteLine($"Event Type: {GetEventType()}");            
-            Console.WriteLine($"Event Date: {_eventDate}");
+            Console.WriteLine($"Event Date: {GetEventDate()}");
          
 
 
 
-        }         
+        }
 
+        #endregion         
 
+        #endregion
 
-        ///<summary>
-        /// Gets the string
-        /// representation of the event
-        /// type based on the enum
-        /// event type.
-        /// The event type is set initially
-        /// in the constructor.
-        ///</summary>
-        public string GetEventType()
-        {
-            switch ((EVENTTYPE)_eventType)
-            {
-                case EVENTTYPE.Lecture:
-                     return "Lecture";
-                
-                case EVENTTYPE.Outdoor:
-                     return "Outdoor";
-
-                case EVENTTYPE.Reception:
-                     return "Reception";
-
-                default:
-                     return "Unknown";
-            }
-
-        }  
 
     }
 
