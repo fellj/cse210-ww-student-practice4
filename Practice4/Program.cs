@@ -50,6 +50,7 @@ namespace Practice4
      Pace (min per mile or min per km)= minutes / distance
      Speed = 60 / pace
      Pace = 60 / speed
+     distance = speed ( in miles per hour) * 60
 
     */
 

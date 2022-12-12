@@ -225,9 +225,9 @@ namespace Practice4.Base
         ///</summary>
         public virtual void GetSummary()
         {
-            Console.WriteLine($"Activity Summary: {Constants._dividingLine}");
+            Console.WriteLine($"Activity Summary:{Constants._newLine}{Constants._dividingLine}");
             Console.WriteLine($"{Constants._newLine}");
-            Console.WriteLine($"{GetActivityDate()} {GetActivityType()} ({GetActivityLengthInMinutes()} min)- Distance: {CalculateDistanceInMiles()} miles, Speed: {CalculateSpeedInMPH()} mph, Pace: {CalculatePace()}");
+            Console.WriteLine($"{GetActivityDate()} {GetActivityType()} ({GetActivityLengthInMinutes()} min)- Distance: {CalculateDistance()} miles, Speed: {CalculateSpeed()} mph, Pace: {CalculatePace()}");
 
         }
 

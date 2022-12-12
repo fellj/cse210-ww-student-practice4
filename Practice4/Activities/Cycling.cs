@@ -22,7 +22,7 @@ namespace Practice4.Activites
         /// Constructor for the Lecture
         /// class. This class inherits
         /// from the Event base class.
-        ///<param name="inputCyclingSpeed"> The average speed of the cylcing activity.</param>
+        ///<param name="inputCyclingSpeed"> The cycling speed in miles per hour.</param>
         ///<param name="inputCyclingDuration"> The duration of the cycling activity in minutes</param> 
         ///<param name="inputCyclingDate"> The date of the cycling activity</param>               
         ///<param name="inputActivityType"> The type of the activity</param>        
@@ -60,41 +60,6 @@ namespace Practice4.Activites
             _speed = inputSpeed;
         }
 
-        ///<summary>
-        /// Get cycling distance
-        ///</summary>
-        public double GetCyclingDistance()
-        {
-            return _cyclingDistance;
-        }
-
-        ///<summary>
-        /// Set cycling distance
-        ///</summary>
-        public void SetCyclingDistance(double inputCyclingDistance)
-        {
-            _cyclingDistance = inputCyclingDistance;
-        }        
-
-        ///<summary>
-        /// Get the cycling
-        /// pace
-        ///</summary>
-        public double GetCyclingPace()
-        {
-            return _cyclingPace;
-        }
-
-        ///<summary>
-        /// Set the cycling
-        /// pace
-        ///<param name="inputCyclingPace">The cycling pace.</param>
-        ///</summary>
-        public void SetCyclingPace(double inputCyclingPace)
-        {
-            _cyclingPace = inputCyclingPace;
-        }
-
         #endregion
 
         #region Activity Calculations
@@ -106,21 +71,17 @@ namespace Practice4.Activites
         ///</summary>    
         public override double CalculateDistance()
         {
-            return (_cyclingDistance * base.CalculateDistance());
+            return (_speed * Constants.MinutesPerHour);
 
         }
 
         ///<summary>
         /// Calculate the cycling speed
         /// in miles per hour
-        ///<param name="minutes">Double value representing the
-        /// total number of minutes for the activity.</param>        
-        ///<param name="distance">Double value representing the
-        /// distance.</param>
         ///</summary>
-        public override double CalculateSpeed(double minutes, double distance)
+        public override double CalculateSpeed()
         {
-            return base.CalculateSpeed(minutes, distance);
+            return _speed;
         }
 
         #endregion
@@ -129,14 +90,10 @@ namespace Practice4.Activites
         ///<summary>
         /// Calculate the pace
         /// in minutes per mile
-        ///<param name="minutes">Double value representing the
-        /// total number of minutes required to run one mile.</param>
-        ///<param name="distance">Double value representing the
-        /// total number of miles traveled.</param>
         ///</summary>
-        public override double CalculatePace(double minutes, double distance)
+        public override double CalculatePace()
         {
-            return base.CalculatePace(minutes, distance);
+            return (CalculateSpeed() / base.CalculatePace());
         }
 
         #region Get Summary for Cycling

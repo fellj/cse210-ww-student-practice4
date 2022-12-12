@@ -70,7 +70,7 @@ namespace Practice4.Activites
         ///</summary>
         public override double CalculateDistance()
         {
-            return (_runningDistance * base.CalculateDistance());
+            return (_runningDistance);
         }
 
         ///<summary>

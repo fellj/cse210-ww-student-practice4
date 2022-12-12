@@ -75,6 +75,24 @@ namespace Practice4.Activites
 
         }
 
+        ///<summary>
+        /// Calculate the swimming
+        /// speed in miles per hour
+        ///</summary>
+        public override double CalculateSpeed()
+        {
+            return (CalculateDistance() / base.GetActivityLengthInMinutes()) * base.CalculateSpeed();
+
+        }
+
+        ///<summary>
+        ///
+        ///</summary>
+        public override double CalculatePace()
+        {
+            return (base.CalculatePace() / CalculateSpeed());
+        }
+
         
 
 
