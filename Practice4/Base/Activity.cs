@@ -27,7 +27,7 @@ namespace Practice4.Base
 
         private DateTime _activityDate;
 
-        private int _activityLengthInMinutes;
+        private double _activityLengthInMinutes;
 
         private Constants.ACTIVITYTYPE _activityType;
 
@@ -42,7 +42,7 @@ namespace Practice4.Base
         ///<param name="inputActivityDate"> The date of the lecture</param>               
         ///<param name="inputActivityType"> The type of the event</param>        
         ///</summary>        
-        public Activity(DateTime inputActivityDate, int inputActivityLengthInMinutes, Constants.ACTIVITYTYPE inputActivityType)
+        public Activity(DateTime inputActivityDate, double inputActivityLengthInMinutes, Constants.ACTIVITYTYPE inputActivityType)
         {
 
             _activityDate = inputActivityDate;
@@ -83,7 +83,7 @@ namespace Practice4.Base
         /// Get the activity
         /// length in minutes
         ///</summary>
-        public int GetActivityLengthInMinutes()
+        public double GetActivityLengthInMinutes()
         {
             return _activityLengthInMinutes;
         }
@@ -93,7 +93,7 @@ namespace Practice4.Base
         /// length in minutes
         ///<param name="inputActivityLengthInMinutes">The activity length in minutes</param>
         ///</summary>
-        public void SetActivityLengthInMinutes(int inputActivityLengthInMinutes)
+        public void SetActivityLengthInMinutes(double inputActivityLengthInMinutes)
         {
 
             _activityLengthInMinutes = inputActivityLengthInMinutes;
@@ -222,12 +222,13 @@ namespace Practice4.Base
         /// of the activity
         /// statistics
         /// Example: 03 Nov 2022 Running (30 min)- Distance 3.0 miles, Speed 6.0 mph, Pace: 10.0 min per mile
+        /// TODO: Add params here if they work
         ///</summary>
-        public virtual void GetSummary()
+        public virtual void GetSummary(double distance, double speed, double pace)
         {
             Console.WriteLine($"Activity Summary:{Constants._newLine}{Constants._dividingLine}");
             Console.WriteLine($"{Constants._newLine}");
-            Console.WriteLine($"{GetActivityDate()} {GetActivityType()} ({GetActivityLengthInMinutes()} min)- Distance: {CalculateDistance()} miles, Speed: {CalculateSpeed()} mph, Pace: {CalculatePace()}");
+            Console.WriteLine($"{GetActivityDate()} {GetActivityType()} ({GetActivityLengthInMinutes()} min)- Distance: {distance} miles, Speed: {speed} mph, Pace: {pace}");
 
         }
 

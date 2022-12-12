@@ -1,4 +1,6 @@
 ﻿using System;
+using Practice4.Base;
+using Practice4.Directing;
 
 namespace Practice4
 {
@@ -60,7 +62,14 @@ namespace Practice4
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World! This is Practice 4.");
+            Console.WriteLine("This is Practice 4.");
+            Console.WriteLine(Constants._newLine);
+            Console.WriteLine(Constants._dividingLine);
+            Director director = new Director();
+            director.CreateActivities();
+            director.GetActivitySummaries();
+
+
         }
     }
 }

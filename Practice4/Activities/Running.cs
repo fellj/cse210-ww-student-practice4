@@ -21,7 +21,7 @@ namespace Practice4.Activites
         ///<param name="inputRunningDate"> The date of the running activity</param>               
         ///<param name="inputActivityType"> The type of the activity</param>        
         ///</summary>
-        public Running(int inputRunningDistance, int inputRunningDuration, DateTime inputRunningDate, Constants.ACTIVITYTYPE inputRunningType) : 
+        public Running(double inputRunningDistance, double inputRunningDuration, DateTime inputRunningDate, Constants.ACTIVITYTYPE inputRunningType) : 
                base(inputRunningDate, inputRunningDuration, Constants.ACTIVITYTYPE.Running) 
         {
 
@@ -104,9 +104,9 @@ namespace Practice4.Activites
         /// statistics
         /// Example: 03 Nov 2022 Running (30 min)- Distance 3.0 miles, Speed 6.0 mph, Pace: 10.0 min per mile
         ///</summary>
-        public override void GetSummary()
+         public override void GetSummary(double distance, double speed, double pace)
         {
-            base.GetSummary();
+            base.GetSummary(distance, speed, pace);
         }
 
         #endregion

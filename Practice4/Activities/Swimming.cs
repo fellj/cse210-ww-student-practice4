@@ -23,7 +23,7 @@ namespace Practice4.Activites
         ///<param name="inputSwimmingDate"> The date of the swimming activity</param>               
         ///<param name="inputActivityType"> The type of the activity</param>        
         ///</summary>
-        public Swimming(int inputSwimmingTotalLaps, int inputSwimmingDuration, DateTime inputSwimmingDate, Constants.ACTIVITYTYPE inputSwimmingType) :
+        public Swimming(int inputSwimmingTotalLaps, double inputSwimmingDuration, DateTime inputSwimmingDate, Constants.ACTIVITYTYPE inputSwimmingType) :
                base(inputSwimmingDate, inputSwimmingDuration, Constants.ACTIVITYTYPE.Swimming)
         {
             _totalLaps = inputSwimmingTotalLaps;
@@ -97,6 +97,24 @@ namespace Practice4.Activites
 
 
         #endregion
+
+
+        #region Get Summary
+
+        ///<summary>
+        /// Returns a summary
+        /// of the activity
+        /// statistics
+        /// Example: 03 Nov 2022 Running (30 min)- Distance 3.0 miles, Speed 6.0 mph, Pace: 10.0 min per mile
+        ///</summary>
+        public override void GetSummary(double distance, double speed, double pace)
+        {
+            base.GetSummary(distance, speed, pace);
+        }
+
+
+        #endregion
+
 
         #endregion       
     }
