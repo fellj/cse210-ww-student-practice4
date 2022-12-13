@@ -7,7 +7,14 @@ namespace Practice4.Directing
     class Director
     {
         private List<Activity> _activities = new List<Activity>();
-
+        
+        ///<summary>
+        /// Create three activity types and
+        /// add them to the _activities list
+        ///           1. Cycling
+        ///           2. Running
+        ///           3. Swimming
+        ///</summary>
         public void CreateActivities()
         {
 
@@ -36,7 +43,9 @@ namespace Practice4.Directing
         }
 
         ///<summary>
-        ///
+        /// Call the GetSummary()
+        /// method for each activity 
+        /// in the list
         ///</summary>
         public void GetActivitySummaries()
         {
