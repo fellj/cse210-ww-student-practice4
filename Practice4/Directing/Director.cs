@@ -26,8 +26,8 @@ namespace Practice4.Directing
             _activities.Add(running1);
 
             // Create the Swimming activity
-            int swimming1TotalLaps   = 14;
-            double swimming1Duration = 38.36;
+            int swimming1TotalLaps   = 25;
+            double swimming1Duration = 28.36;
             DateTime swimming1Date   = new DateTime(2022, 11, 26);
             Swimming swimming1       = new Swimming(swimming1TotalLaps, swimming1Duration, swimming1Date, Constants.ACTIVITYTYPE.Swimming);
             _activities.Add(swimming1);
@@ -43,6 +43,7 @@ namespace Practice4.Directing
             foreach (Activity activity in _activities)
             {
                 activity.GetSummary(activity.CalculateDistance(), activity.CalculateSpeed(), activity.CalculatePace());
+                
                 
             }
 

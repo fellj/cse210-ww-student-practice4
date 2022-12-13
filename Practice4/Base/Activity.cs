@@ -136,40 +136,6 @@ namespace Practice4.Base
 
         }       
 
-        ///<summary>
-        /// Get the speed
-        /// in mph
-        ///</summary>
-        public virtual int GetSpeedInMPH()
-        {
-            int speed = 10;
-
-            return speed;
-        }
-
-        ///<summary>
-        /// Get the distance
-        /// in miles
-        ///</summary>
-        public virtual double GetDistanceInMiles()
-        {
-            double distance = 1.10;
-
-            return distance;
-        }   
-
-        ///<summary>
-        /// Get the pace
-        /// in total miles
-        /// in one minute
-        ///</summary>
-        public virtual double GetPace()
-        {
-            double distanceInOneMinute = 0.65;
-
-            return distanceInOneMinute;
-        }             
-
 
 
         #endregion
@@ -204,11 +170,10 @@ namespace Practice4.Base
         /// Calculate the pace
         /// in minutes per mile
         ///</summary>
-        public virtual double CalculatePace()
+        public virtual string CalculatePace()
         {
-
-
-            return Constants.MinutesPerHour;
+            
+            return Constants.MinutesPerHour.ToString();
 
         }        
 
@@ -224,12 +189,32 @@ namespace Practice4.Base
         /// Example: 03 Nov 2022 Running (30 min)- Distance 3.0 miles, Speed 6.0 mph, Pace: 10.0 min per mile
         /// TODO: Add params here if they work
         ///</summary>
-        public virtual void GetSummary(double distance, double speed, double pace)
+        public virtual void GetSummary(double distance, double speed, string pace)
         {
             Console.WriteLine($"Activity Summary:{Constants._newLine}{Constants._dividingLine}");
             Console.WriteLine($"{Constants._newLine}");
-            Console.WriteLine($"{GetActivityDate()} {GetActivityType()} ({GetActivityLengthInMinutes()} min)- Distance: {distance} miles, Speed: {speed} mph, Pace: {pace}");
+            Console.WriteLine($"{GetActivityDate()} {GetActivityType()} ({RoundUp2Places(GetActivityLengthInMinutes())} min)- Distance: {RoundUp2Places(distance)} miles, Speed: {RoundUp2Places(speed)} mph, Pace: {pace} min per mile {Constants._newLine}");
 
+        }
+
+        ///<summary>
+        /// Employs the math
+        /// objects rounding 
+        /// of an input double value
+        /// up to 2 decimal places
+        /// using the midpoint rounding
+        /// mode "AwayFromZero" which
+        /// rounds up or down based
+        /// based on the double value.
+        /// For this program, there
+        /// will be no negative values
+        /// for distance, speed or pace.
+        ///<param name="inputDoubleValue"> A double value to be rounded to the
+        ///                              nearest 2 .</param>
+        ///</summary>
+        public double RoundUp2Places(double inputDoubleValue)
+        {
+            return Math.Round(inputDoubleValue, 2, MidpointRounding.AwayFromZero);
         }
 
         #endregion

@@ -71,7 +71,7 @@ namespace Practice4.Activites
         ///</summary>        
         public override double CalculateDistance()
         {
-            return (_totalLaps * base.CalculateDistance());
+            return (((_totalLaps * Constants.OlympicSwimmingPoolLengthInMeters) * Constants.MeterToKilometerConversion) * Constants.KilometerToMileConversion);
 
         }
 
@@ -88,9 +88,10 @@ namespace Practice4.Activites
         ///<summary>
         ///
         ///</summary>
-        public override double CalculatePace()
+        public override string CalculatePace()
         {
-            return (base.CalculatePace() / CalculateSpeed());
+            double doublePace = Constants.MinutesPerHour / CalculateSpeed();
+            return $"{Math.Round(doublePace, 2, MidpointRounding.AwayFromZero)}";
         }
 
         
@@ -107,7 +108,7 @@ namespace Practice4.Activites
         /// statistics
         /// Example: 03 Nov 2022 Running (30 min)- Distance 3.0 miles, Speed 6.0 mph, Pace: 10.0 min per mile
         ///</summary>
-        public override void GetSummary(double distance, double speed, double pace)
+        public override void GetSummary(double distance, double speed, string pace)
         {
             base.GetSummary(distance, speed, pace);
         }

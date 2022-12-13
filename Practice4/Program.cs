@@ -48,6 +48,7 @@ namespace Practice4
      Math Hints: #
      Distance (km) = swimming laps * 50 / 1000
      Distance (miles) = swimming laps * 50 / 1000 * 0.62
+     Cycling Distance = (speed / 60 ) * minutes
      Speed (mph or kph) = (distance / minutes) * 60
      Pace (min per mile or min per km)= minutes / distance
      Speed = 60 / pace
