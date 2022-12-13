@@ -45,7 +45,10 @@ namespace Practice4.Directing
         ///<summary>
         /// Call the GetSummary()
         /// method for each activity 
-        /// in the list
+        /// in the list and
+        /// pass the object's own calculate distance, speed and
+        /// pace methods as input parameters
+        /// for each activity
         ///</summary>
         public void GetActivitySummaries()
         {
